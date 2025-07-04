@@ -6,6 +6,7 @@ import { GeminiModule } from './infrastructure/gemini-ia/gemini.module';
 import { ConfigModule } from '@nestjs/config';
 import { HistorialModule } from './presentation/modules/historial.module';
 import { ChatbotModule } from './infrastructure/chatbot/chatbot.module';
+import { ConsultaDbIAModule } from './infrastructure/consulta-db-ia/consulta-db-ia.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ChatbotModule } from './infrastructure/chatbot/chatbot.module';
     ConfigModule.forRoot({ isGlobal: true }), // 👈 carga automáticamente .env
     GeminiModule,
     ChatbotModule,
+    ConsultaDbIAModule,
   ],
   //controllers: [AppController],
   //providers: [AppService],
