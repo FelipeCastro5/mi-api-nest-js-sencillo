@@ -15,7 +15,7 @@ export class ConsultaDbIAController {
   @ApiResponse({ status: 500, description: 'Error al procesar la consulta' })
   async analizarPregunta(@Body() body: PreguntaDto) {
     try {
-      const resultado = await this.consultaDbIAService.procesarPregunta(body.pregunta);
+      const resultado = await this.consultaDbIAService.procesarPregunta(body.fk_user, body.pregunta);
       return resultado;
     } catch (error) {
       throw new HttpException('Error procesando la pregunta', HttpStatus.INTERNAL_SERVER_ERROR);

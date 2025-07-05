@@ -8,6 +8,7 @@ import { HistorialModule } from './presentation/modules/historial.module';
 import { ChatbotModule } from './infrastructure/chatbot/chatbot.module';
 import { ConsultaDbIAModule } from './infrastructure/consulta-db-ia/consulta-db-ia.module';
 import { ActivitiesModule } from './presentation/modules/activities.module';
+import { MixtoModule } from './infrastructure/mixto-db-historial/mixto-db-historial.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ActivitiesModule } from './presentation/modules/activities.module';
     GeminiModule,
     ChatbotModule,
     ConsultaDbIAModule,
+    MixtoModule,
   ],
   //controllers: [AppController],
   //providers: [AppService],

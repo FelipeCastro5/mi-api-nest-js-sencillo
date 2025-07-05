@@ -3,6 +3,7 @@ import { PostgresService } from 'src/infrastructure/postgres-db/postgres.service
 import * as fs from 'fs';
 import * as path from 'path';
 import { GeminiService } from '../gemini-ia/gemini.service';
+import { HistorialRepository } from '../repository/historial.repository';
 
 @Injectable()
 export class ConsultaDbIAService {
@@ -11,52 +12,58 @@ export class ConsultaDbIAService {
   constructor(
     private readonly geminiService: GeminiService,
     private readonly postgresService: PostgresService,
+    private readonly historialRepository: HistorialRepository,
   ) { }
 
-  async procesarPregunta(preguntaUsuario: string): Promise<{
-    sql: string;
-    datos: any;
-    respuesta: string;
-  }> {
-    try {
-      // 1. Leer el esquema SQL
-      const esquemaPath = path.join(process.cwd(), 'src', 'infrastructure', 'utilities', 'db.sql');
-      const estructuraSQL = fs.readFileSync(esquemaPath, 'utf8');
+  private async generarSQLDesdePregunta(preguntaUsuario: string): Promise<string> {
+    const esquemaPath = path.join(process.cwd(), 'src', 'infrastructure', 'utilities', 'db.sql');
+    const estructuraSQL = fs.readFileSync(esquemaPath, 'utf8');
 
-      // 2. Prompt para que Gemini genere la consulta SQL
-      const promptSQL = `Tienes la siguiente estructura de base de datos:
+    const promptSQL = `Tienes la siguiente estructura de base de datos:
 
 ${estructuraSQL}
 
 Genera una consulta SQL para responder esta pregunta del usuario: "${preguntaUsuario}"
-Usa comparaciones insensibles a mayúsculas (por ejemplo, ILIKE en PostgreSQL) cuando compares texto.
+Cuando compares columnas de texto con valores proporcionados por el usuario, utiliza siempre ILIKE (insensible a mayúsculas) y asegúrate de permitir coincidencias parciales utilizando comodines % cuando sea apropiado.
 Devuelve solo la consulta SQL, sin explicaciones ni comentarios.`;
 
-      const sqlGeneradoRaw = await this.geminiService.preguntarGemini(promptSQL);
-      const sqlLimpio = sqlGeneradoRaw.replace(/```sql|```/g, '').trim();
-      //console.log('estructuraSQL:',estructuraSQL);
+    const sqlGeneradoRaw = await this.geminiService.preguntarGemini(promptSQL);
+    const sqlLimpio = sqlGeneradoRaw.replace(/```sql|```/g, '').trim();
 
-      this.logger.debug(`🔍 SQL generado:\n${sqlLimpio}`);
+    this.logger.debug(`🔍 SQL generado:\n${sqlLimpio}`);
 
-      // 3. Ejecutar el SQL
-      const resultado = await this.postgresService.query(sqlLimpio);
-      const datos = resultado.rows;
+    return sqlLimpio;
+  }
 
-      // 4. Generar una conclusión en lenguaje natural
-      const promptConclusion = `El usuario preguntó: "${preguntaUsuario}".
+  private async ejecutarSQL(sql: string): Promise<any[]> {
+    const resultado = await this.postgresService.query(sql);
+    return resultado.rows;
+  }
+
+  private async generarRespuestaEnLenguajeNatural(pregunta: string, datos: any[]): Promise<string> {
+    const promptConclusion = `El usuario preguntó: "${pregunta}".
 Los datos obtenidos de la base de datos son:
 
 ${JSON.stringify(datos)}
 
 Redacta una respuesta clara en español explicando estos resultados.`;
 
-      const respuesta = await this.geminiService.preguntarGemini(promptConclusion);
+    const respuesta = await this.geminiService.preguntarGemini(promptConclusion);
+    return respuesta.trim();
+  }
 
-      return {
-        sql: sqlLimpio,
-        datos,
-        respuesta: respuesta.trim(),
-      };
+  async procesarPregunta(fk_user: number, preguntaUsuario: string): Promise<{
+    sql: string;
+    datos: any;
+    respuesta: string;
+  }> {
+    try {
+      const sql = await this.generarSQLDesdePregunta(preguntaUsuario);
+      const datos = await this.ejecutarSQL(sql);
+      const respuesta = await this.generarRespuestaEnLenguajeNatural(preguntaUsuario, datos);
+      await this.historialRepository.insertHistorial(fk_user, preguntaUsuario, respuesta.trim());
+      
+      return { sql, datos, respuesta };
     } catch (error) {
       this.logger.error('❌ Error procesando consulta IA + DB', error);
       throw new Error('Error al procesar la consulta con IA y base de datos');
