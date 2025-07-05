@@ -7,11 +7,13 @@ import { ConfigModule } from '@nestjs/config';
 import { HistorialModule } from './presentation/modules/historial.module';
 import { ChatbotModule } from './infrastructure/chatbot/chatbot.module';
 import { ConsultaDbIAModule } from './infrastructure/consulta-db-ia/consulta-db-ia.module';
+import { ActivitiesModule } from './presentation/modules/activities.module';
 
 @Module({
   imports: [
     UsersModule,
     ProjectsModule,
+    ActivitiesModule,
     HistorialModule,
     GoogleDriveModule,
     ConfigModule.forRoot({ isGlobal: true }), // 👈 carga automáticamente .env
