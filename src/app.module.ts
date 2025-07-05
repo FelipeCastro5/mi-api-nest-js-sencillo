@@ -9,9 +9,11 @@ import { ChatbotModule } from './infrastructure/chatbot/chatbot.module';
 import { ConsultaDbIAModule } from './infrastructure/consulta-db-ia/consulta-db-ia.module';
 import { ActivitiesModule } from './presentation/modules/activities.module';
 import { MixtoModule } from './infrastructure/mixto-db-historial/mixto-db-historial.module';
+import { iaModule } from './infrastructure/ia-service/ia.module';
 
 @Module({
   imports: [
+    iaModule,
     UsersModule,
     ProjectsModule,
     ActivitiesModule,
