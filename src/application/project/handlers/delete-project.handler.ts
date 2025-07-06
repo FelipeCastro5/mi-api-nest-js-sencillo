@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { DeleteProjectCommand } from '../commands/delete-project.command';
-import { ProjectInterface } from '../../../domain/ProjectDomain/project.interface';
+import { ProjectInterface } from '../../../domain/project-domain/project.interface';
 import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()

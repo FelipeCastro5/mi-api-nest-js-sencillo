@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Historial } from '../../domain/historialDomain/historial.entity';
+import { Historial } from '../../domain/historial-domain/historial.entity';
 import { GeminiService } from '../gemini-ia/gemini.service';
 import { HistorialRepository } from '../repository/historial.repository';
 

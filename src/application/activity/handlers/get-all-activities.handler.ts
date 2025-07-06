@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { GetAllActivitiesCommand } from '../commands/get-all-activities.command';
-import { ActivityInterface } from '../../../domain/activityDomain/activity.interface';
+import { ActivityInterface } from '../../../domain/activity-domain/activity.interface';
 import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()

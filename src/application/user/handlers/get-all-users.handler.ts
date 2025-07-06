@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { GetAllUsersCommand } from '../commands/get-all-users.command';
-import { UserInterface } from '../../../domain/UserDomain/user.interface';
+import { UserInterface } from '../../../domain/user-domain/user.interface';
 import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()

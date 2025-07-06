@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { ProjectInterface } from '../../domain/ProjectDomain/project.interface';
-import { Project } from '../../domain/ProjectDomain/project.entity';
+import { ProjectInterface } from '../../domain/project-domain/project.interface';
+import { Project } from '../../domain/project-domain/project.entity';
 import { PostgresService } from '../postgres-db/postgres.service';
 
 @Injectable()
