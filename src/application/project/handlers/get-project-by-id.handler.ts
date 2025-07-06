@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { GetProjectByIdCommand } from '../commands/get-project-by-id.command';
-import { ProjectInterface } from 'src/domain/ProjectDomain/project.interface';
-import { ResponseUtil } from 'src/application/utilities/response.util';
+import { ProjectInterface } from '../../../domain/ProjectDomain/project.interface';
+import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()
 export class GetProjectByIdHandler {

@@ -1,4 +1,3 @@
-// src/google-drive/dto/drive-listing.dto.ts
 export interface DriveFileDto {
   id: string;
   name: string;

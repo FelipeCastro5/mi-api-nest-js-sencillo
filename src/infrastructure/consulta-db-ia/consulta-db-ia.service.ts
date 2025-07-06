@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { PostgresService } from 'src/infrastructure/postgres-db/postgres.service';
+import { PostgresService } from '../../infrastructure/postgres-db/postgres.service';
 import * as fs from 'fs';
 import * as path from 'path';
 import { GeminiService } from '../gemini-ia/gemini.service';

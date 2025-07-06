@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateProjectCommand } from '../commands/create-project.command';
-import { ProjectInterface } from 'src/domain/ProjectDomain/project.interface';
-import { ResponseUtil } from 'src/application/utilities/response.util';
-import { SqlSanitizer } from 'src/application/utilities/sql-sanitizer.util';
+import { ProjectInterface } from '../../../domain/ProjectDomain/project.interface';
+import { ResponseUtil } from '../../utilities/response.util';
+//import { SqlSanitizer } from '../../utilities/sql-sanitizer.util';
 
 @Injectable()
 export class CreateProjectHandler {

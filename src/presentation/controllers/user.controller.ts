@@ -1,16 +1,16 @@
 import { Body, Controller, Delete, Get, Post, Put, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateUserCommand } from 'src/application/user/commands/create-user.command';
-import { DeleteUserCommand } from 'src/application/user/commands/delete-user.command';
-import { GetAllUsersCommand } from 'src/application/user/commands/get-all-users.command';
-import { GetUserByIdCommand } from 'src/application/user/commands/get-user-by-id.command';
-import { UpdateUserCommand } from 'src/application/user/commands/update-user.command';
+import { CreateUserCommand } from '../../application/user/commands/create-user.command';
+import { DeleteUserCommand } from '../../application/user/commands/delete-user.command';
+import { GetAllUsersCommand } from '../../application/user/commands/get-all-users.command';
+import { GetUserByIdCommand } from '../../application/user/commands/get-user-by-id.command';
+import { UpdateUserCommand } from '../../application/user/commands/update-user.command';
 
-import { CreateUserHandler } from 'src/application/user/handlers/create-user.handler';
-import { DeleteUserHandler } from 'src/application/user/handlers/delete-user.handler';
-import { GetAllUsersHandler } from 'src/application/user/handlers/get-all-users.handler';
-import { GetUserByIdHandler } from 'src/application/user/handlers/get-user-by-id.handler';
-import { UpdateUserHandler } from 'src/application/user/handlers/update-user.handler';
+import { CreateUserHandler } from '../../application/user/handlers/create-user.handler';
+import { DeleteUserHandler } from '../../application/user/handlers/delete-user.handler';
+import { GetAllUsersHandler } from '../../application/user/handlers/get-all-users.handler';
+import { GetUserByIdHandler } from '../../application/user/handlers/get-user-by-id.handler';
+import { UpdateUserHandler } from '../../application/user/handlers/update-user.handler';
 
 import { UpdateUserDto } from '../dtos/user/update-user.dto';
 import { CreateUserDto } from '../dtos/user/create-user.dto';

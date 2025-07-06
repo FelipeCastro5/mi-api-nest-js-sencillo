@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { GoogleDriveService } from 'src/infrastructure/google-drive-api/google-drive-service';
+import { GoogleDriveService } from '../../infrastructure/google-drive-api/google-drive-service';
 import { GoogleDriveController } from './google-drive.controller';
 
 @Module({

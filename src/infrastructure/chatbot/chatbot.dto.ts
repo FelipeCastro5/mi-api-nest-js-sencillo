@@ -1,5 +1,3 @@
-// src/chatbot/chatbot.dto.ts
-
 import { ApiProperty } from '@nestjs/swagger';
 import { IsInt, IsString, MinLength } from 'class-validator';
 

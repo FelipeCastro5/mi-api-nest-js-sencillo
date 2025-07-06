@@ -1,17 +1,17 @@
 import { Body, Controller, Delete, Get, Post, Put, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { CreateProjectCommand } from 'src/application/project/commands/create-project.command';
-import { DeleteProjectCommand } from 'src/application/project/commands/delete-project.command';
-import { GetAllProjectsCommand } from 'src/application/project/commands/get-all-projects.command';
-import { GetProjectByIdCommand } from 'src/application/project/commands/get-project-by-id.command';
-import { UpdateProjectCommand } from 'src/application/project/commands/update-project.command';
+import { CreateProjectCommand } from '../../application/project/commands/create-project.command';
+import { DeleteProjectCommand } from '../../application/project/commands/delete-project.command';
+import { GetAllProjectsCommand } from '../../application/project/commands/get-all-projects.command';
+import { GetProjectByIdCommand } from '../../application/project/commands/get-project-by-id.command';
+import { UpdateProjectCommand } from '../../application/project/commands/update-project.command';
 
-import { CreateProjectHandler } from 'src/application/project/handlers/create-project.handler';
-import { DeleteProjectHandler } from 'src/application/project/handlers/delete-project.handler';
-import { GetAllProjectsHandler } from 'src/application/project/handlers/get-all-projects.handler';
-import { GetProjectByIdHandler } from 'src/application/project/handlers/get-project-by-id.handler';
-import { UpdateProjectHandler } from 'src/application/project/handlers/update-project.handler';
+import { CreateProjectHandler } from '../../application/project/handlers/create-project.handler';
+import { DeleteProjectHandler } from '../../application/project/handlers/delete-project.handler';
+import { GetAllProjectsHandler } from '../../application/project/handlers/get-all-projects.handler';
+import { GetProjectByIdHandler } from '../../application/project/handlers/get-project-by-id.handler';
+import { UpdateProjectHandler } from '../../application/project/handlers/update-project.handler';
 
 import { CreateProjectDto } from '../dtos/project/create-project.dto';
 import { UpdateProjectDto } from '../dtos/project/update-project.dto';

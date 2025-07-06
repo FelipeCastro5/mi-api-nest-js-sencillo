@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { HistorialInterface } from 'src/domain/HistorialDomain/historial.interface';
-import { Historial } from 'src/domain/HistorialDomain/historial.entity';
+import { HistorialInterface } from '../../domain/HistorialDomain/historial.interface';
+import { Historial } from '../../domain/HistorialDomain/historial.entity';
 import { PostgresService } from '../postgres-db/postgres.service';
 
 @Injectable()

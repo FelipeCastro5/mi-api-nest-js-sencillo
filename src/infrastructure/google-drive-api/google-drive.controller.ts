@@ -1,8 +1,8 @@
 import { Controller, Post, Get, Delete, Body, UploadedFile, UseInterceptors, Query, BadRequestException, Param, } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiOperation, ApiConsumes, ApiBody, ApiQuery } from '@nestjs/swagger';
-import { ResponseUtil } from 'src/application/utilities/response.util';
-import { GoogleDriveService } from 'src/infrastructure/google-drive-api/google-drive-service';
+import { ResponseUtil } from '../../application/utilities/response.util';
+import { GoogleDriveService } from '../../infrastructure/google-drive-api/google-drive-service';
 @ApiTags('Google Drive')
 @Controller('drive')
 export class GoogleDriveController {

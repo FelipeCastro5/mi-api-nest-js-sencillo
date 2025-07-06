@@ -1,4 +1,3 @@
-// src/application/controllers/ia.controller.ts
 import { Controller, Get, Query } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiQuery } from '@nestjs/swagger';
 import { ClasificacionHandler } from './handlers/clasificar.handler';

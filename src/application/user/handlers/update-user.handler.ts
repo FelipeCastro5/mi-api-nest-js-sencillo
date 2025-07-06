@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { UpdateUserCommand } from '../commands/update-user.command';
-import { UserInterface } from 'src/domain/UserDomain/user.interface';
-import { ResponseUtil } from 'src/application/utilities/response.util';
+import { UserInterface } from '../../../domain/UserDomain/user.interface';
+import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()
 export class UpdateUserHandler {

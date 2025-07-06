@@ -1,4 +1,3 @@
-// src/application/dto/mixto-db-historial.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsInt, IsNotEmpty, IsString, Min } from 'class-validator';
 

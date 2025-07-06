@@ -1,4 +1,3 @@
-// src/application/activity/commands/update-activity.command.ts
 export class UpdateActivityCommand {
   constructor(
     public readonly id: number,

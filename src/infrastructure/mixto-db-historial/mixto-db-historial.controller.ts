@@ -1,4 +1,3 @@
-// src/application/controllers/mixto-db-historial.controller.ts
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { MixtoDbHistorialService } from './mixto-db-historial.service';

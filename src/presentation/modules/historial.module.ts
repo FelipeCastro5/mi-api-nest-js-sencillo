@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { PostgresModule } from 'src/infrastructure/postgres-db/postgres.module';
-import { HistorialRepository } from 'src/infrastructure/repository/historial.repository';
+import { PostgresModule } from '../../infrastructure/postgres-db/postgres.module';
+import { HistorialRepository } from '../../infrastructure/repository/historial.repository';
 
 @Module({
   imports: [PostgresModule],

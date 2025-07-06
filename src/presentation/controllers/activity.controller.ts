@@ -1,5 +1,3 @@
-// src/presentation/controllers/activity.controller.ts
-
 import {
   Body,
   Controller,
@@ -11,17 +9,17 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { CreateActivityCommand } from 'src/application/activity/commands/create-activity.command';
-import { UpdateActivityCommand } from 'src/application/activity/commands/update-activity.command';
-import { DeleteActivityCommand } from 'src/application/activity/commands/delete-activity.command';
-import { GetAllActivitiesCommand } from 'src/application/activity/commands/get-all-activities.command';
-import { GetActivityByIdCommand } from 'src/application/activity/commands/get-activity-by-id.command';
+import { CreateActivityCommand } from '../../application/activity/commands/create-activity.command';
+import { UpdateActivityCommand } from '../../application/activity/commands/update-activity.command';
+import { DeleteActivityCommand } from '../../application/activity/commands/delete-activity.command';
+import { GetAllActivitiesCommand } from '../../application/activity/commands/get-all-activities.command';
+import { GetActivityByIdCommand } from '../../application/activity/commands/get-activity-by-id.command';
 
-import { CreateActivityHandler } from 'src/application/activity/handlers/create-activity.handler';
-import { UpdateActivityHandler } from 'src/application/activity/handlers/update-activity.handler';
-import { DeleteActivityHandler } from 'src/application/activity/handlers/delete-activity.handler';
-import { GetAllActivitiesHandler } from 'src/application/activity/handlers/get-all-activities.handler';
-import { GetActivityByIdHandler } from 'src/application/activity/handlers/get-activity-by-id.handler';
+import { CreateActivityHandler } from '../../application/activity/handlers/create-activity.handler';
+import { UpdateActivityHandler } from '../../application/activity/handlers/update-activity.handler';
+import { DeleteActivityHandler } from '../../application/activity/handlers/delete-activity.handler';
+import { GetAllActivitiesHandler } from '../../application/activity/handlers/get-all-activities.handler';
+import { GetActivityByIdHandler } from '../../application/activity/handlers/get-activity-by-id.handler';
 
 import { CreateActivityDto } from '../dtos/activity/create-activity.dto';
 import { UpdateActivityDto } from '../dtos/activity/update-activity.dto';

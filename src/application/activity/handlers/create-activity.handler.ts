@@ -1,8 +1,7 @@
-// src/application/activity/handlers/create-activity.handler.ts
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateActivityCommand } from '../commands/create-activity.command';
-import { ActivityInterface } from 'src/domain/ActivityDomain/activity.interface';
-import { ResponseUtil } from 'src/application/utilities/response.util';
+import { ActivityInterface } from '../../../domain/activityDomain/activity.interface';
+import { ResponseUtil } from '../../utilities/response.util';
 
 @Injectable()
 export class CreateActivityHandler {
