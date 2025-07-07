@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 import { ActivityRepository } from '../../infrastructure/repository/activity.repository';
 import { PostgresModule } from '../../infrastructure/postgres-db/postgres.module';
 import { ActivitiesController } from '../controllers/activity.controller';
@@ -10,7 +11,7 @@ import { GetActivityByIdHandler } from '../../application/activity/handlers/get-
 // Aquí podrías importar tus handlers y controller
 
 @Module({
-  imports: [PostgresModule],
+  imports: [PostgresModule, CqrsModule],
   providers: [
     {
       provide: 'ActivityInterface',

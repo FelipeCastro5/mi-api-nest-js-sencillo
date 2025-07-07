@@ -2,10 +2,11 @@ import { Inject, Injectable } from '@nestjs/common';
 import { UpdateActivityCommand } from '../commands/update-activity.command';
 import { ActivityInterface } from '../../../domain/activity-domain/activity.interface';
 import { ResponseUtil } from '../../utilities/response.util';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-@Injectable()
-export class UpdateActivityHandler {
-  constructor(
+@CommandHandler(UpdateActivityCommand)
+export class UpdateActivityHandler implements ICommandHandler<UpdateActivityCommand> {
+ constructor(
     @Inject('ActivityInterface')
     private readonly activityRepository: ActivityInterface,
   ) {}

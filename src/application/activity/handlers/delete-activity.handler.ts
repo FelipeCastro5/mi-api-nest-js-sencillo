@@ -2,9 +2,10 @@ import { Inject, Injectable } from '@nestjs/common';
 import { DeleteActivityCommand } from '../commands/delete-activity.command';
 import { ActivityInterface } from '../../../domain/activity-domain/activity.interface';
 import { ResponseUtil } from '../../utilities/response.util';
+import { QueryHandler, IQueryHandler, CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-@Injectable()
-export class DeleteActivityHandler {
+@CommandHandler(DeleteActivityCommand)
+export class DeleteActivityHandler implements ICommandHandler<DeleteActivityCommand> {
   constructor(
     @Inject('ActivityInterface')
     private readonly activityRepository: ActivityInterface,

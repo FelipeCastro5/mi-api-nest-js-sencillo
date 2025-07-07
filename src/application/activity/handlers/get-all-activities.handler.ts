@@ -2,9 +2,11 @@ import { Inject, Injectable } from '@nestjs/common';
 import { GetAllActivitiesCommand } from '../commands/get-all-activities.command';
 import { ActivityInterface } from '../../../domain/activity-domain/activity.interface';
 import { ResponseUtil } from '../../utilities/response.util';
+import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
-@Injectable()
-export class GetAllActivitiesHandler {
+
+@QueryHandler(GetAllActivitiesCommand)
+export class GetAllActivitiesHandler implements IQueryHandler<GetAllActivitiesCommand> {
   constructor(
     @Inject('ActivityInterface')
     private readonly activityRepository: ActivityInterface,
