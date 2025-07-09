@@ -10,20 +10,24 @@ import { ConsultaDbIAModule } from './infrastructure/consulta-db-ia/consulta-db-
 import { ActivitiesModule } from './presentation/modules/activities.module';
 import { MixtoModule } from './infrastructure/mixto-db-historial/mixto-db-historial.module';
 import { iaModule } from './infrastructure/ia-service/ia.module';
+import { EmailModule } from './infrastructure/email-service/email-service.module';
 
 @Module({
   imports: [
-    iaModule,
+    ConfigModule.forRoot({ isGlobal: true }), // 👈 carga automáticamente .env
+    //DB
     UsersModule,
     ProjectsModule,
     ActivitiesModule,
     HistorialModule,
+    //Service
+    iaModule,
     GoogleDriveModule,
-    ConfigModule.forRoot({ isGlobal: true }), // 👈 carga automáticamente .env
     GeminiModule,
     ChatbotModule,
     ConsultaDbIAModule,
     MixtoModule,
+    EmailModule,
   ],
   //controllers: [AppController],
   //providers: [AppService],
